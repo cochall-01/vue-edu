@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Test 2 : Promise 실습</title>
+</head>
+<body>
+    <button onclick="console.log('Promise Start');
+    let bStatus = Math.random() > 0.5;
+    fnCreatePromise(bStatus)
+    .then(result => console.log(result))
+    .catch(errMsg => console.log(`error : ${errMsg}`));
+    console.log('Promise Stop');"
+    >하나의 Promise</button>
+
+    <script>
+        function fnCreatePromise(status) {
+            console.log("Promise 생성");
+            return new Promise(function(resolve, reject){
+                setTimeout(()=>{
+                    if(status) {
+                        resolve("상품이 성공적으로 배송되었습니다.");
+                    }
+                    else {
+                        reject("죄송합니다. 상품이 아직 준비되지 못했습니다.");
+                    }
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>

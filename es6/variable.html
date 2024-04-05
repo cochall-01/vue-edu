@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        fnMyFunction();
+        function fnMyFunction() {
+            var apple = 5;
+            console.log("in", apple);
+        }
+        //console.log("out", apple);  // => variable.html:13 Uncaught ReferenceError: apple is not defined
+
+        // var는 {} 블록을 무시한다.
+        var apple2 = 3;
+        {
+            var apple2 = 5;
+            console.log("in", apple2);
+        }
+        console.log("out", apple2);  // => 5
+
+        var apple3 = 9;
+        {
+            let apple3 = 3;
+            console.log("es6:in", apple3);
+
+            apple3 = 5;
+            console.log("es6:in", apple3);
+            // let apple3 = 7; // => 오류 Uncaught SyntaxError: Identifier 'apple3' has already been declared
+
+            // const car; // => 오류. Uncaught SyntaxError: Missing initializer in const declaration
+            const carname = "하이브리드카";
+            console.log("es6:in", carname);
+            // carname = "디젤카"; //=> 오류. variable.html:34 Uncaught TypeError: Assignment to constant variable.
+        }
+        console.log("es6:out", apple3);
+        // console.log("es6:out", carname); // => 오류. variable.html:38 Uncaught ReferenceError: carname is not defined  at variable.html:38:32
+        console.log(`es6:out ${apple3}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
